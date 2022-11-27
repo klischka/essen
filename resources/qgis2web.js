@@ -32,7 +32,7 @@ var map = new ol.Map({
 });
 
 
-map.getView().fit([755968.103046, 6669816.070833, 804952.176199, 6730910.851411], map.getSize());
+map.getView().fit([765972.739122, 6687797.278621, 790481.021493, 6718361.388068], map.getSize());
 
 var NO_POPUP = 0
 var ALL_FIELDS = 1
@@ -347,6 +347,17 @@ map.on('singleclick', function(evt) {
 
 
 
+
+var geocoder = new Geocoder('nominatim', {
+  provider: 'osm',
+  lang: 'en-US',
+  placeholder: 'Search for ...',
+  limit: 5,
+  keepOpen: true
+});
+map.addControl(geocoder);
+
+document.getElementsByClassName('gcd-gl-btn')[0].className += ' fa fa-search';
 
 var attributionComplete = false;
 map.on("rendercomplete", function(evt) {
